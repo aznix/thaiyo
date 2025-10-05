@@ -138,7 +138,7 @@ const interval = setInterval(() => {
   const BREAK_MS = 420;
 
   // If using as a true splash, set MAIN_URL to the main page route
-  const MAIN_URL = './index.html'; // main page to load after sequence
+  const MAIN_URL = 'index.html'; // main page to load after sequence
 
   // Additive shake so board breaks at current angle (doesn't override rotate)
   function additiveShake(el) {
