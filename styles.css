@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hentaigana:wght@200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 @font-face {
   font-family: 'Special Gothic Expanded One';
   src: url('https://fonts.gstatic.com/s/specialgothicexpandedone/v2/IurO6Zxk74-YaYk1r3HOet4g75ENmBxUmOK61tA0Iu5gnw.ttf') format('truetype');
@@ -10,8 +9,8 @@
 }
 
 @font-face{
-  font-family: "Taktuk Brush";
-  src: url("./fonts/TaktukBrush-woZxZ.otf") format("opentype");
+  font-family: "Paint";
+  src: url("/fonts/Paint-JpZDE.ttf") format("opentype");
   font-style: normal;
   font-display: swap;
 }
@@ -24,43 +23,12 @@
 }
 
 
-:root {
-  font-size: 16px;
-  font-family: 'Open Sans';
-  --text-primary: #b6b6b6;
-  --text-secondary: #ececec;
-  --bg-primary: #23232e;
-  --bg-secondary: #141418;
-  --transition-speed: 600ms ease-in-out;
-}
-
-/* Scroll container */
-.scroll-container {
-  height: 5000px;
-  background-color: rgb(27, 25, 25);
-  position: relative;
-  z-index: 1;
-}
-
-
-
 body {
   background-color: white;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
-}
-
-body::-webkit-scrollbar {
-  width: 0.55rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: #251d1d;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: rgb(52, 32, 32);
+  overflow: hidden;
+  
 }
 
 main {
@@ -68,244 +36,191 @@ main {
   padding: 1rem;
 }
 
-.navbar {
+
+
+/* Loading screen */
+.loading {
   position: fixed;
-  background-color: #271714; 
-  transition: width 600ms ease;
-  overflow: hidden;
-}
-
-.navbar-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-.nav-item {
-  width: 100%;
-}
-
-.nav-link {
+  inset: 0;
+  background: #000;
   display: flex;
   align-items: center;
-  font-weight: bold;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  height: 5rem;
-  color: var(--text-primary);
-  text-decoration: none;
-  filter: grayscale(100%) opacity(0.7);
-  transition: var(--transition-speed);
-}
-
-.nav-link:hover {
-  filter: grayscale(0%) opacity(1);
-  text-shadow: 0 0 10px #ee183d;
-  color: #ee183d;
-}
-
-.link-text {
-  margin-left: 1rem;
-  opacity: 0;
-  transition: opacity var(--transition-speed);
-}
-
-.nav-link svg {
-  width: 2rem;
-  min-width: 2rem;
-  margin: 2.4rem;
-  transition: all 1s ease-in-out;
-}
-
-.nav-link:hover svg {
-    transform: scale(1.2);
-}
-
-.fa-primary {
-  fill: #ee183d;
-}
-
-
-.fa-primary {transition: var(--transition-speed);}
-
-.logo {
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: var(--text-secondary);
-  background: #412821;
-  
-  font-size: 1.5rem;
-  letter-spacing: 0.3ch;
-  height: 100px;
-  width: 100%;
-}
-
-.logo img {
-  width: 200px;
-  height: 120px;
-  min-width: 2rem;
-  transition: var(--transition-speed);
-}
-
-.logo span {
-    margin-top: 15px;
-}
-
-.logo button {
-    background: transparent;
-    border: none;
-    display: flex;
-    justify-content: center;
-    width: 95px;
-    height: 95px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: margin-left 0.43s ease-in-out;
-}
-
-.logo-text {
-  display: inline;
-  position: absolute;
-  left: -999px;
-  transition: 0.45s;
-  opacity: 0;
-}
-
-#dragon {
-  transition: transform 1s;
-}
-
-/* Hero section */
-.hero {
-  display: flex;
   justify-content: center;
-}
-
-/* Home section */
-#hero-home {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
+  z-index: 9999;
+  pointer-events: none;
   flex-direction: column;
-}
+  
 
-.homeTit, .loadingSub {
-  letter-spacing: 0.5px;
-  font-family: 'Special Gothic Expanded One';
 }
-
-.homeTit {
-  margin-top: 50px;
+.loading span, .loading img {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-family: 'Special Gothic Expanded One', sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.loadingText {
   font-size: 8rem;
-  margin-left: 3rem;
   color: #ee183d;
 }
 
-.homeTit img {
-  width: 200px;
-  height: 200px;
-  margin-left: -3rem;
+.loadingText img {
+  width: 210px;
+  height: 210px;
+  margin-left: -4rem;
 } 
 
 .loadingSub {
   font-size: 3rem;
   color: white;
+  text-shadow: 0 0 5px white;
 }
 
-#startJourney {
-  display: flex;
-  justify-content: center;
+:root {
+  --transition-speed: 600ms ease-in-out;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #1b1919;
+  overflow: hidden;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+#hanging { display:block; width:700px; height:auto; }
+.signCon { width:700px; /* match image */ }
+
+.hero { display: flex; align-items: center; flex-direction: column; }
+.signCon { rotate: -6deg; cursor: pointer; position: relative; }
+#hanging-text {
+  font-size: 4rem;
+  position: absolute; top: 58%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: wheat;
+  font-family: "Taktuk Brush", system-ui, sans-serif;
+}
+
+#particle-wrap { position: fixed; inset: 0; overflow: hidden; z-index: 0; }
+.hero, .signCon { position: relative; z-index: 1; }
+#particles { position: absolute; inset: 0; pointer-events: none; }
+
+/* Particle pieces */
+.blossom, .pebble {
+  position: absolute; border-radius: 50%; pointer-events: none;
+}
+
+.blossom, .pebble { width: 10px; height: 10px; border-radius: 50%; }
+.blossom { background: #ee699b; box-shadow: 0 0 8px #faa; }
+.pebble  { background: #ffd5ef; }
+
+.blossom {
+  width: 20px; height: 14px;
+  background: linear-gradient(135deg, #ffacd2 60%, #ee699b 100%);
+  box-shadow: 0 0 16px #faa; opacity: .9;
+}
+.pebble {
+  width: 16px; height: 14px;
+  background: linear-gradient(100deg, #fad8e8 60%, #ffd5ef 100%);
+  opacity: .6;
+}
+
+/* info */
+
+.icon-hint {
+  display: inline-flex;
   align-items: center;
-  margin-top: 100px;
-  height: 70px;
-  width: 500px;
+  gap: 20px;
+  height: 60px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #1b1919;
+  box-shadow: #faa 0 0 20px;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;              /* hide hint while collapsed */
+  width: 60px;                  /* collapsed width (icon only) */
+  transition: width 280ms ease; /* smooth expansion */
+  position: absolute;
+  bottom: -150px;
+}
+
+.icon-hint.is-hidden {
+  transition: opacity 0.1s ease;
+  opacity: 0;
+  pointer-events: none;           /* prevent invisible element from catching clicks */
+}
+
+/* Icon fixed size */
+.icon-hint .icon {
+  color: #faa;
+  font-family: "Paint", system-ui, sans-serif;
+  font-size: 4rem;
+  margin-left: 13px;
+  transition: opacity 280ms ease;
+}
+
+/* Hint starts hidden (clipped by container width) and faded */
+.icon-hint .hint {
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 220ms ease;
   font-size: 2rem;
-  border-radius: 10px;
-  font-family: 'Special Gothic Expanded One';
-  background-color: #ee183d;
-  border: none;
-  transition: var(--transition-speed);
-
-  cursor: pointer;
+  font-family: 'Paint';
+  color: #faa;
+  animation: pulse infinite 1.5s;
 }
 
-#startJourney:hover {
-  color: white;
-  text-shadow: 0 0 10px white;
-  transition: var(--transition-speed);
-  scale: 1.1;
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 0;
+    }
+    50% {
+        text-shadow: 0 0 15px white;
+        color: white;
+    }
+    100% {
+        text-shadow: 0 0 0;
+    }
 }
 
-/* Menu section */
-#hero-menu {
-  height: 900px;
-  width: 100%;
-  margin-top: 250px;
+/* On hover/focus, expand container and reveal hint */
+.icon-hint:hover,
+.icon-hint:focus-within {
+  width: 300px;
+}
+
+.icon-hint:hover .hint,
+.icon-hint:focus-within .hint {
+  opacity: 1;                   /* fade in text */
+  position: absolute;
+  margin-left: 20px;
+}
+
+.icon-hint:hover .icon {
+    opacity: 0;
 }
 
 
 
-
-
-/* Small screens */
-@media only screen and (max-width: 600px) {
-  .navbar {
-    bottom: 0;
-    width: 100vw;
-    height: 5rem;
-  }
-
-  .logo {
-    display: none;
-  }
-
-  .navbar-nav {
-    flex-direction: row;
-  }
-
-  .nav-link {
-    justify-content: center;
-  }
-
-  main {
-    margin: 0;
-  }
+/* White fade overlay */
+.white-overlay {
+  position: fixed; inset: 0; background: #fff;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 800ms ease;
+  z-index: 1000;
 }
 
-/* Large screens */
-@media only screen and (min-width: 600px) {
-    .navbar {
-      top: 0;
-      width: 7rem;
-      transition: width 600ms ease;
-      height: 100vh;
-    }
-    .navbar.active {
-        width: 16rem;
-    }
-
-    .navbar.active .link-text {
-        display: inline;
-        opacity: 1;
-    }
-
-    .navbar.active .logo button {
-        margin-left: 9rem;
-        transition: var(--transition-speed);
-    }
-
-    .navbar.active .logo-text {
-        left: 0px;
-    }
+/* Additive shake uses Web Animations; keep a class for emergency fallback */
+.signCon.breaking { animation: sign-shake-translate 420ms ease-in-out both; }
+@keyframes sign-shake-translate {
+  0%,100% { transform: translateX(0) scale(1); }
+  20% { transform: translateX(-6px) scale(1.02); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
 }
