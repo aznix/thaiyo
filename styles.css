@@ -58,7 +58,7 @@ main {
   justify-content: center;
   gap: 0;
   font-family: 'Special Gothic Expanded One', sans-serif;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
 }
 
 .loadingText {

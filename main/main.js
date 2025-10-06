@@ -63,3 +63,19 @@ function scrollToSection(id) {
 document.getElementById('startJourney').addEventListener('click', () => {
   scrollToSection('hero-menu'); // change to the target section id
 });
+
+document.getElementById('toHome').addEventListener('click', () => {
+  scrollToSection('hero-home');
+});
+
+document.getElementById('toMenu').addEventListener('click', () => {
+  scrollToSection('hero-menu');
+});
+
+document.getElementById('toAbout').addEventListener('click', () => {
+  scrollToSection('hero-about');
+});
+
+document.getElementById('toContact').addEventListener('click', () => {
+  scrollToSection('hero-contact');
+});
