@@ -10,7 +10,7 @@
 
 @font-face{
   font-family: "Paint";
-  src: url("/fonts/Paint-JpZDE.ttf") format("opentype");
+  src: url("./fonts/Paint-JpZDE.ttf") format("opentype");
   font-style: normal;
   font-display: swap;
 }
