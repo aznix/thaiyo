@@ -73,7 +73,7 @@ function createParticle(type) {
   el.className = type;
   el.style.position = 'absolute';
 
-  // Start near top; right-based to mirror your original logic
+  // Start near top
   const startRight = rand(-window.innerWidth * 0.25, window.innerWidth * 0.25);
   const startTop   = rand(-220, -20);
   el.style.right = startRight + 'px';
@@ -90,7 +90,6 @@ function createParticle(type) {
     const driftY = rand(window.innerHeight * 0.9, window.innerHeight * 1.6);
     const wobble = rand(-120, 120);
 
-    // GSAP-like timing with WAAPI
     el.animate(
       [
         { transform: 'translate(0,0)' },
@@ -117,7 +116,7 @@ const interval = setInterval(() => {
   }
 }, 220);
 
-// ----------------- Click-to-break (extracted) -----------------
+// Board functionality
 (function () {
   const signImg = document.getElementById('hanging');
   const signWrap = document.querySelector('.signCon');
@@ -136,9 +135,7 @@ const interval = setInterval(() => {
   let armed  = true;
   const BREAK_AT = 5;
   const BREAK_MS = 420;
-
-  // If using as a true splash, set MAIN_URL to the main page route
-  const MAIN_URL = '/main/main.html'; // main page to load after sequence
+  const MAIN_URL = './main/main.html'; // main page to load after sequence
 
   // Additive shake so board breaks at current angle (doesn't override rotate)
   function additiveShake(el) {
