@@ -126,7 +126,7 @@ const interval = setInterval(() => {
   if (!signImg || !signWrap || !overlay) return;
 
   const ORIGINAL_SRC = signImg.getAttribute('src');
-  const BROKEN_SRC   = './assets/brokensign.png'; // provide this file
+  const BROKEN_SRC   = 'assets/brokensign.png'; // provide this file
 
   // Preload broken image to avoid flicker
   const preloadBroken = new Image(); preloadBroken.src = BROKEN_SRC;
